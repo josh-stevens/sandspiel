@@ -54,9 +54,9 @@ img {
 button {
   z-index: 3;
   position: relative;
-  height: 30px;
-  min-width: 30px;
-  font-size: 19px;
+  height: 90px;
+  min-width: 90px;
+  font-size: 38px;
   padding: 1px 5px;
   background-color: whitesmoke;
   color: black;
@@ -90,6 +90,7 @@ button.selected {
 }
 #ui {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   float: right;
 }

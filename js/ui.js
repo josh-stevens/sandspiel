@@ -101,7 +101,7 @@ const Menu = ({ close, children }) => {
       <div className={"menu"}>
         {children}
 
-        <button className="x" onClick={close}>
+        <button className="x" onPointerDown={close}>
           x
         </button>
       </div>
@@ -127,7 +127,7 @@ const Submissions = ({ submissions, loadSubmission }) => {
               </h4>
               <button
                 className="load"
-                onClick={() => loadSubmission(submission)}
+                onPointerDown={() => loadSubmission(submission)}
               >
                 Load
               </button>
@@ -145,7 +145,7 @@ const ElementButton = (name, selectedElement, setElement) => {
     <button
       className={elementID == selectedElement ? "selected" : ""}
       key={name}
-      onClick={() => {
+      onPointerDown={() => {
         setElement(elementID);
       }}
     >
@@ -377,7 +377,7 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         <button
-          onClick={() => this.togglePause()}
+          onPointerDown={() => this.togglePause()}
           className={paused ? "selected" : ""}
         >
           {paused ? (
@@ -391,18 +391,18 @@ class Index extends React.Component {
             </svg>
           )}
         </button>
-        <button onClick={() => this.upload()}>Upload</button>
-        <button onClick={() => this.loadSubmissions()}>Browse</button>
-        <button onClick={() => this.reset()}>Reset</button>
-        <button onClick={() => this.info()}>Info</button>
+        <button onPointerDown={() => this.upload()}>Upload</button>
+        <button onPointerDown={() => this.loadSubmissions()}>Browse</button>
+        <button onPointerDown={() => this.reset()}>Reset</button>
+        <button onPointerDown={() => this.info()}>Info</button>
 
-        {/* {paused && <button onClick={() => universe.tick()}>Tick</button>} */}
+        {/* {paused && <button onPointerDown={() => universe.tick()}>Tick</button>} */}
         <span className="sizes">
           {sizeMap.map((v, i) => (
             <button
               key={i}
               className={i == size ? "selected" : ""}
-              onClick={e => this.setSize(e, i)}
+              onPointerDown={e => this.setSize(e, i)}
               style={{ padding: "0px" }}
             >
               <svg height="23" width="23" id="d" viewBox="0 0 100 100">
@@ -420,7 +420,7 @@ class Index extends React.Component {
         <button
           className={-1 == selectedElement ? "selected" : ""}
           key={name}
-          onClick={() => {
+          onPointerDown={() => {
             this.setState({ selectedElement: -1 });
           }}
         >
@@ -428,7 +428,7 @@ class Index extends React.Component {
         </button>
         {this.state.currentSubmission && (
           <div className="submission-title">
-            <button onClick={() => this.incScore()}>
+            <button onPointerDown={() => this.incScore()}>
               +♡{this.state.currentSubmission.data.score}{" "}
             </button>
             {this.state.currentSubmission.data.title}
@@ -445,7 +445,7 @@ class Index extends React.Component {
               />
               <button
                 disabled={this.state.submitting}
-                onClick={() => this.submit()}
+                onPointerDown={() => this.submit()}
               >
                 Submit
               </button>
